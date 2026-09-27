@@ -8,7 +8,7 @@ def filestart():
 
 def choice_quit(origin):
     while True:
-        choice = input("Are you sure you want to quit? (Y/N)").lower()
+        choice = input("Are you sure you want to quit? (Y/N)\n(Please note that you will need to re-submit any data which you haven't finished submitting)\n ").lower()
         if choice == "y" or choice == "yes":
             print("Exitting program now.")
             quit()
@@ -215,8 +215,7 @@ def StallName(booking_number):
             with open("BookingList.txt", "r") as f2:
                 content = f2.read()
                 if stall_name in content:
-                    while stall_name in content:
-                        print("This stall name is already taken. Please enter an unused stall name: ")
+                    print("This stall name is already taken. Please enter an unused stall name: ")
                 else:
                     break
     return booking_number, stall_name
