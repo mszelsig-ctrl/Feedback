@@ -8,7 +8,7 @@ def filestart():
 
 def choice_quit(origin):
     while True:
-        choice = input("Are you sure you want to quit? (Y/N)\n(Please note that you will need to re-submit any data which you haven't finished submitting)\n ").lower()
+        choice = input("Are you sure you want to quit? (Y/N)\n(Please note that you will need to re-submit any data from incomplete sections).\n ").lower()
         if choice == "y" or choice == "yes":
             print("Exitting program now.")
             quit()
@@ -118,7 +118,7 @@ def choice():
 
 
 def UserDetails():
-    print(f"Welcome to the booking component of the booking and staff portal for the Glastonbury Festival of Contemporary Performing Arts - 2026.\n"
+    print(f"Welcome to Section 1 of the booking component of the booking and staff portal for the Glastonbury Festival of Contemporary Performing Arts - 2026.\n"
         f"If at any point you want to restart the booking process, please just type 'restart' into the next available input slot. In a similar fashion, if at any point you want to quit, just type 'quit' into the next available input.\n"
         f"If at any point you instead want to either go straight to the staff menu or return back to the portal choice menu, please just type 'staff' or 'choice' accordingly into the next available input slot.\n"
         f"We will now begin the booking process, please follow any instructions provided and answer all of the questions below:")
@@ -167,6 +167,7 @@ def UserDetails():
 
 
 def UserContacts():
+    print("Welcome to Section 2 of the booking component.")
     while True:
         contact1 = input("Please enter your correct phone number (including the 0 at the beginning) with no spaces: ")
         contact1a = "0" in contact1
@@ -202,6 +203,7 @@ def UserContacts():
 
 
 def StallName(booking_number):
+    print("Welcome to Section 3 of the booking component.")
     while True:
         stall_name = input("Enter your desired stall name: ")
         if stall_name in Actions_map:
@@ -222,6 +224,7 @@ def StallName(booking_number):
 
 
 def Deposit():
+    print("Welcome to Section 4 of the booking component.")
     while True:
         deposit = input("Enter your deposit (in GBP / £): ")
         if deposit in Actions_map:
@@ -245,6 +248,7 @@ def Deposit():
 
 
 def StallSize():
+    print("Welcome to Section 5 of the booking component.")
     size_choices = {"small": 200, "medium": 400, "large": 600}
     while True:
         size = input("Enter the desired size of your stall (small / medium / large): ").lower()
@@ -265,6 +269,7 @@ def StallSize():
 
 
 def BookingDuration():
+    print("Welcome to Section 6 of the booking component.")
     duration_choices = {"1": 1, "1 day": 1, "2": 2, "2 days": 2, "3": 3, "3 days": 3, "4": 4, "4 days": 4, "5": 5, "5 days": 5, "6": 6, "6 days": 6}
     while True:
         duration = input("Enter the desired duration of your booking (in days) between 1 and 6: ")
@@ -285,6 +290,7 @@ def BookingDuration():
 
 
 def PromotionalBanner():
+    print("Welcome to Section 7 of the booking component.")
     while True:
         banner = input("Do you wish to include a promotional banner in order to reduce your cost by 10%? (Yes/No) ").lower()
         if banner in Actions_map:
@@ -332,7 +338,9 @@ def InvoiceNumber():
     return invoice_number
 
 def FinalInvoice(name, contact1, contact2, stall_name, deposit, booking_number, invoice_number, size_a, duration_a, banner_b, final_cost):
+    print("Welcome to the final section (Section 8 of the booking component.")
     invoice_paid = False
+    # ^ Set invoice paid to false in order to prevent any case where invoice paid could accidentally be set to true if the code below fails
     invoice = (f"\n---INVOICE---\nInvoice for {name}\n:"
                f"\nDetails:\n"
                f"Vendor Name: {stall_name}\n"
